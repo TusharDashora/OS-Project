@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include <pthread.h>
-# define arrSize 10
+# define arrSize 7
 
 struct StructMaxMin
 {
@@ -17,7 +17,7 @@ int main()
 {
     pthread_t tid;
     struct StructMaxMin *st_main,*st_th;
-    int FinalMax,FinalMin;
+    int Max,Min;
     
     st_main=(struct StructMaxMin*)malloc(sizeof(struct StructMaxMin));
     
@@ -49,24 +49,24 @@ int main()
     
     if(st_main->iMax >= st_th->iMax)
     {
-        FinalMax=st_main->iMax;
+        Max=st_main->iMax;
     }    
     else
     {
-        FinalMax=st_th->iMax;
+        Max=st_th->iMax;
     }
         
     if(st_main->iMin <=st_th->iMin)
     {
-        FinalMin=st_main->iMin;
+        Min=st_main->iMin;
     }
     else
     {
-        FinalMin=st_th->iMin;
+        Min=st_th->iMin;
     }
     
-    printf("Final Max : %d \n",FinalMax);
-    printf("Final Min : %d \n",FinalMin);
+    printf("Final Max : %d \n",Max);
+    printf("Final Min : %d \n",Min);
     return 0;
 }
 
